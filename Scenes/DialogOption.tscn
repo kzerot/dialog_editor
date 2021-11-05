@@ -1,0 +1,137 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/DialogOption.gd" type="Script" id=1]
+
+[node name="DialogOption" type="GraphNode" groups=[
+"save",
+]]
+margin_top = 20.0
+margin_right = 224.0
+margin_bottom = 204.0
+mouse_filter = 1
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = true
+slot/3/left_type = 1
+slot/3/left_color = Color( 0.0784314, 1, 0, 1 )
+slot/3/right_enabled = true
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = true
+slot/4/left_type = 1
+slot/4/left_color = Color( 0.0784314, 1, 0, 1 )
+slot/4/right_enabled = true
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = true
+slot/5/left_type = 1
+slot/5/left_color = Color( 0.0784314, 1, 0, 1 )
+slot/5/right_enabled = true
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = true
+slot/6/left_type = 1
+slot/6/left_color = Color( 0.0784314, 1, 0, 1 )
+slot/6/right_enabled = true
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color( 1, 1, 1, 1 )
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 208.0
+margin_bottom = 38.0
+text = "NPC says"
+
+[node name="NPC" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 39.0
+margin_right = 208.0
+margin_bottom = 59.0
+focus_mode = 0
+toggle_mode = true
+enabled_focus_mode = 0
+text = "Text"
+clip_text = true
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 60.0
+margin_right = 208.0
+margin_bottom = 74.0
+text = "Player answers"
+
+[node name="Option0" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 75.0
+margin_right = 208.0
+margin_bottom = 95.0
+focus_mode = 0
+toggle_mode = true
+enabled_focus_mode = 0
+clip_text = true
+
+[node name="Option1" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 96.0
+margin_right = 208.0
+margin_bottom = 116.0
+focus_mode = 0
+toggle_mode = true
+enabled_focus_mode = 0
+clip_text = true
+
+[node name="Option2" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 117.0
+margin_right = 208.0
+margin_bottom = 137.0
+focus_mode = 0
+toggle_mode = true
+enabled_focus_mode = 0
+clip_text = true
+
+[node name="Option3" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 138.0
+margin_right = 208.0
+margin_bottom = 158.0
+focus_mode = 0
+toggle_mode = true
+enabled_focus_mode = 0
+clip_text = true
+
+[node name="Name" type="LineEdit" parent="."]
+margin_left = 16.0
+margin_top = 159.0
+margin_right = 208.0
+margin_bottom = 183.0
+placeholder_text = "Who talking"
+
+[connection signal="text_changed" from="Name" to="." method="name_changed"]

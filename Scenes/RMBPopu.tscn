@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/RMBPopu.gd" type="Script" id=1]
+
+[node name="Control" type="PopupMenu"]
+margin_right = 88.0
+margin_bottom = 52.0
+script = ExtResource( 1 )
+
+[connection signal="id_pressed" from="." to="." method="_id_pressed"]
+[connection signal="modal_closed" from="." to="." method="_modal_closed"]

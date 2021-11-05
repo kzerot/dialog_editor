@@ -1,0 +1,167 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://BaseTheme.tres" type="Theme" id=1]
+[ext_resource path="res://addons/DialogNode/dialog.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/TestDialog.gd" type="Script" id=3]
+
+[node name="TestDialog" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Info" type="PanelContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 414.0
+size_flags_vertical = 3
+
+[node name="v" type="VBoxContainer" parent="Info"]
+margin_right = 1024.0
+margin_bottom = 414.0
+
+[node name="Button" type="Button" parent="Info/v"]
+margin_left = 971.0
+margin_right = 1024.0
+margin_bottom = 35.0
+size_flags_horizontal = 10
+text = "Close"
+
+[node name="Inventory" type="HBoxContainer" parent="Info/v"]
+margin_top = 39.0
+margin_right = 1024.0
+margin_bottom = 74.0
+
+[node name="Label" type="Label" parent="Info/v/Inventory"]
+margin_top = 5.0
+margin_right = 200.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 200, 0 )
+text = "Inventory"
+
+[node name="LineEdit" type="LineEdit" parent="Info/v/Inventory"]
+margin_left = 204.0
+margin_right = 1024.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+
+[node name="Quests" type="HBoxContainer" parent="Info/v"]
+margin_top = 78.0
+margin_right = 1024.0
+margin_bottom = 113.0
+
+[node name="Label" type="Label" parent="Info/v/Quests"]
+margin_top = 5.0
+margin_right = 200.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 200, 0 )
+text = "Quests"
+
+[node name="LineEdit" type="LineEdit" parent="Info/v/Quests"]
+margin_left = 204.0
+margin_right = 1024.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+
+[node name="QuestsComplete" type="HBoxContainer" parent="Info/v"]
+margin_top = 117.0
+margin_right = 1024.0
+margin_bottom = 152.0
+
+[node name="Label" type="Label" parent="Info/v/QuestsComplete"]
+margin_top = 5.0
+margin_right = 200.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 200, 0 )
+text = "Quests Complete"
+
+[node name="LineEdit" type="LineEdit" parent="Info/v/QuestsComplete"]
+margin_left = 204.0
+margin_right = 1024.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+
+[node name="Characters" type="HBoxContainer" parent="Info/v"]
+margin_top = 156.0
+margin_right = 1024.0
+margin_bottom = 191.0
+
+[node name="Label" type="Label" parent="Info/v/Characters"]
+margin_top = 5.0
+margin_right = 200.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 200, 0 )
+text = "Party"
+
+[node name="LineEdit" type="LineEdit" parent="Info/v/Characters"]
+margin_left = 204.0
+margin_right = 1024.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+
+[node name="Start" type="Button" parent="Info/v"]
+margin_top = 195.0
+margin_right = 1024.0
+margin_bottom = 230.0
+text = "Play"
+
+[node name="Panel" type="PanelContainer" parent="."]
+margin_top = 418.0
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="V" type="VBoxContainer" parent="Panel"]
+margin_right = 1024.0
+margin_bottom = 182.0
+
+[node name="MainText" type="RichTextLabel" parent="Panel/V"]
+margin_right = 1024.0
+margin_bottom = 26.0
+size_flags_vertical = 3
+fit_content_height = true
+
+[node name="Option0" type="ToolButton" parent="Panel/V"]
+margin_top = 30.0
+margin_right = 1024.0
+margin_bottom = 65.0
+text = "1"
+align = 0
+
+[node name="Option1" type="ToolButton" parent="Panel/V"]
+margin_top = 69.0
+margin_right = 1024.0
+margin_bottom = 104.0
+text = "2"
+align = 0
+
+[node name="Option2" type="ToolButton" parent="Panel/V"]
+margin_top = 108.0
+margin_right = 1024.0
+margin_bottom = 143.0
+text = "3"
+align = 0
+
+[node name="Option3" type="ToolButton" parent="Panel/V"]
+margin_top = 147.0
+margin_right = 1024.0
+margin_bottom = 182.0
+text = "4"
+align = 0
+
+[node name="DialogNode" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[connection signal="pressed" from="Info/v/Button" to="." method="close"]
+[connection signal="pressed" from="Info/v/Start" to="." method="start"]
+[connection signal="pressed" from="Panel/V/Option0" to="." method="opt" binds= [ 0 ]]
+[connection signal="pressed" from="Panel/V/Option1" to="." method="opt" binds= [ 1 ]]
+[connection signal="pressed" from="Panel/V/Option2" to="." method="opt" binds= [ 2 ]]
+[connection signal="pressed" from="Panel/V/Option3" to="." method="opt" binds= [ 3 ]]
+[connection signal="action" from="DialogNode" to="." method="action"]
+[connection signal="end" from="DialogNode" to="." method="end"]
+[connection signal="show_text" from="DialogNode" to="." method="show_text"]

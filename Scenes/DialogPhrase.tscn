@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/DialogPhrase.gd" type="Script" id=1]
+
+[node name="DialogPhrase" type="GraphNode" groups=[
+"save",
+]]
+margin_top = 20.0
+margin_right = 224.0
+margin_bottom = 85.0
+mouse_filter = 1
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 208.0
+margin_bottom = 38.0
+text = "NPC says"
+
+[node name="NPC" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 39.0
+margin_right = 208.0
+margin_bottom = 59.0
+focus_mode = 0
+toggle_mode = true
+enabled_focus_mode = 0
+text = "Text"
+clip_text = true
+
+[node name="Name" type="LineEdit" parent="."]
+margin_left = 16.0
+margin_top = 60.0
+margin_right = 208.0
+margin_bottom = 84.0
+placeholder_text = "Who talking"
+
+[connection signal="text_changed" from="Name" to="." method="name_changed"]

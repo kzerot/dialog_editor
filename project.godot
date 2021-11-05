@@ -1,0 +1,67 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "GraphNode",
+"class": "Action",
+"language": "GDScript",
+"path": "res://Scenes/Action.gd"
+}, {
+"base": "ExtraNode",
+"class": "Condition",
+"language": "GDScript",
+"path": "res://Scenes/Condition.gd"
+}, {
+"base": "GraphNode",
+"class": "DialogOption",
+"language": "GDScript",
+"path": "res://Scenes/DialogOption.gd"
+}, {
+"base": "GraphNode",
+"class": "DialogPhrase",
+"language": "GDScript",
+"path": "res://Scenes/DialogPhrase.gd"
+}, {
+"base": "GraphNode",
+"class": "ExtraNode",
+"language": "GDScript",
+"path": "res://Scenes/ExtraNode.gd"
+}, {
+"base": "GraphNode",
+"class": "Selector",
+"language": "GDScript",
+"path": "res://Scenes/Selector.gd"
+} ]
+_global_script_class_icons={
+"Action": "",
+"Condition": "",
+"DialogOption": "",
+"DialogPhrase": "",
+"ExtraNode": "",
+"Selector": ""
+}
+
+[application]
+
+config/name="DialogEditor"
+run/main_scene="res://DialogEditor.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+e="*res://e.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "DialogNode" )
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

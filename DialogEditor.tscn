@@ -1,0 +1,237 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Editor.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Answer.gd" type="Script" id=2]
+[ext_resource path="res://BaseTheme.tres" type="Theme" id=3]
+[ext_resource path="res://Scenes/TestDialog.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Confirm.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.176471, 0.176471, 0.176471, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color( 0.0901961, 0.0980392, 0.0980392, 0.815686 )
+
+[node name="Editor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="V" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="PanelContainer" parent="V"]
+margin_right = 1024.0
+margin_bottom = 35.0
+
+[node name="H" type="HBoxContainer" parent="V/Menu"]
+margin_right = 1024.0
+margin_bottom = 35.0
+
+[node name="File" type="MenuButton" parent="V/Menu/H"]
+margin_right = 55.0
+margin_bottom = 35.0
+text = "Menu"
+items = [ "New", null, 0, false, false, 0, 0, null, "", false, "Open", null, 0, false, false, 1, 0, null, "", false, "Save", null, 0, false, false, 2, 0, null, "", false, "Save as", null, 0, false, false, 3, 0, null, "", false ]
+
+[node name="Play" type="ToolButton" parent="V/Menu/H"]
+margin_left = 59.0
+margin_right = 117.0
+margin_bottom = 35.0
+text = "PLAY"
+
+[node name="Dialogs" type="GraphEdit" parent="V"]
+margin_top = 39.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 1 )
+custom_colors/grid_major = Color( 0, 0, 0, 1 )
+custom_colors/grid_minor = Color( 0.141176, 0.141176, 0.141176, 1 )
+right_disconnects = true
+use_snap = false
+
+[node name="Start" type="GraphNode" parent="V/Dialogs"]
+margin_right = 152.0
+margin_bottom = 57.0
+mouse_filter = 1
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="V/Dialogs/Start"]
+margin_left = 5.0
+margin_top = 27.0
+margin_right = 147.0
+margin_bottom = 52.0
+text = "START"
+
+[node name="Answer" type="PanelContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 211.0
+custom_styles/panel = SubResource( 2 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="V" type="VBoxContainer" parent="Answer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1014.0
+margin_bottom = 201.0
+
+[node name="Buttons" type="HBoxContainer" parent="Answer/V"]
+margin_right = 1004.0
+margin_bottom = 35.0
+
+[node name="Label" type="Label" parent="Answer/V/Buttons"]
+margin_top = 5.0
+margin_right = 108.0
+margin_bottom = 30.0
+text = "Unique code: "
+
+[node name="Code" type="LineEdit" parent="Answer/V/Buttons"]
+margin_left = 112.0
+margin_right = 312.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="Clear" type="Button" parent="Answer/V/Buttons"]
+margin_left = 951.0
+margin_right = 1004.0
+margin_bottom = 35.0
+size_flags_horizontal = 10
+text = "Clear"
+
+[node name="Translations" type="HBoxContainer" parent="Answer/V"]
+margin_top = 39.0
+margin_right = 1004.0
+margin_bottom = 191.0
+size_flags_vertical = 3
+
+[node name="TR0" type="TextEdit" parent="Answer/V/Translations"]
+margin_right = 500.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+draw_tabs = true
+draw_spaces = true
+wrap_enabled = true
+
+[node name="TR1" type="TextEdit" parent="Answer/V/Translations"]
+margin_left = 504.0
+margin_right = 1004.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+draw_tabs = true
+draw_spaces = true
+wrap_enabled = true
+
+[node name="Tween" type="Tween" parent="Answer"]
+
+[node name="TestDialog" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="Load" type="FileDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -391.0
+margin_top = -202.0
+margin_right = 390.0
+margin_bottom = 202.0
+window_title = "Open a File"
+resizable = true
+mode = 0
+access = 2
+filters = PoolStringArray( "*.json" )
+current_dir = "/home/murre/Git/DialogEditor"
+current_path = "/home/murre/Git/DialogEditor/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveAs" type="FileDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -391.0
+margin_top = -202.0
+margin_right = 390.0
+margin_bottom = 202.0
+resizable = true
+access = 2
+filters = PoolStringArray( "*.json" )
+current_dir = "/home/murre/Git/DialogEditor"
+current_path = "/home/murre/Git/DialogEditor/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Confirm" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="P" type="Panel" parent="Confirm"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -124.0
+margin_top = -52.0
+margin_right = 125.0
+margin_bottom = 52.0
+
+[node name="Text" type="Label" parent="Confirm/P"]
+margin_right = 249.0
+margin_bottom = 68.0
+autowrap = true
+
+[node name="No" type="Button" parent="Confirm/P"]
+margin_top = 68.0
+margin_right = 99.0
+margin_bottom = 103.0
+text = "No"
+
+[node name="Yes" type="Button" parent="Confirm/P"]
+margin_left = 155.0
+margin_top = 68.0
+margin_right = 249.0
+margin_bottom = 103.0
+text = "Yes"
+
+[connection signal="pressed" from="V/Menu/H/Play" to="." method="play"]
+[connection signal="connection_request" from="V/Dialogs" to="." method="connection_request"]
+[connection signal="connection_to_empty" from="V/Dialogs" to="." method="connection_to_empty"]
+[connection signal="disconnection_request" from="V/Dialogs" to="." method="disconnection_request"]
+[connection signal="gui_input" from="V/Dialogs" to="." method="dialogs_gui_input"]
+[connection signal="text_changed" from="Answer/V/Buttons/Code" to="Answer" method="code_changed"]
+[connection signal="text_entered" from="Answer/V/Buttons/Code" to="Answer" method="text_entered"]
+[connection signal="pressed" from="Answer/V/Buttons/Clear" to="Answer" method="_on_Clear_pressed"]
+[connection signal="text_changed" from="Answer/V/Translations/TR0" to="Answer" method="text0_changed"]
+[connection signal="text_changed" from="Answer/V/Translations/TR1" to="Answer" method="text1_changed"]
+[connection signal="file_selected" from="Load" to="." method="load_dialog"]
+[connection signal="file_selected" from="SaveAs" to="." method="save_dialog"]

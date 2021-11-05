@@ -1,0 +1,234 @@
+{
+  "start_node": "Selector6",
+  "nodes": {
+    "Selector6": {
+      "type": "selector",
+      "code": "Selector6",
+      "options": [
+        {
+          "code": "",
+          "next_code": "phrase_4",
+          "conditions": [
+            {
+              "condition": "has_quest",
+              "options": {
+                "quest": "qw"
+              },
+              "type": "condition"
+            }
+          ]
+        },
+        {
+          "code": "",
+          "next_code": "phrase_7",
+          "conditions": [
+
+          ]
+        },
+        {
+          "code": "",
+          "next_code": "",
+          "conditions": [
+
+          ]
+        },
+        {
+          "code": "",
+          "next_code": "",
+          "conditions": [
+
+          ]
+        }
+      ]
+    },
+    "phrase_7": {
+      "code": "phrase_7",
+      "next_code": "",
+      "type": "phrase"
+    },
+    "phrase_4": {
+      "type": "dialog",
+      "code": "phrase_4",
+      "options": [
+        {
+          "code": "phrase_8",
+          "next_code": "phrase_5",
+          "conditions": [
+
+          ]
+        },
+        {
+          "code": "phrase_9",
+          "next_code": "Action1",
+          "conditions": [
+            {
+              "condition": "has_item",
+              "options": {
+                "item": "Item"
+              },
+              "type": "condition"
+            }
+          ]
+        },
+        null,
+        null
+      ]
+    },
+    "phrase_5": {
+      "code": "phrase_5",
+      "next_code": "",
+      "type": "phrase"
+    },
+    "Action1": {
+      "code": "Action1",
+      "action": "give_item",
+      "type": "action",
+      "args": {
+        "item": "Item"
+      },
+      "next_code": "Action2"
+    },
+    "phrase_10": {
+      "code": "phrase_10",
+      "next_code": "",
+      "type": "phrase"
+    },
+    "Action2": {
+      "code": "Action2",
+      "action": "complete_quest",
+      "type": "action",
+      "args": {
+        "quest": "qw"
+      },
+      "next_code": "phrase_10"
+    }
+  },
+  "extra": {
+    "Selector6": {
+      "offset": {
+        "x": 215.5,
+        "y": 87
+      }
+    },
+    "phrase_7": {
+      "offset": {
+        "x": 830,
+        "y": -105.5
+      }
+    },
+    "phrase_4": {
+      "offset": {
+        "x": 547,
+        "y": 94
+      }
+    },
+    "phrase_5": {
+      "offset": {
+        "x": 921,
+        "y": 42.5
+      }
+    },
+    "Action1": {
+      "offset": {
+        "x": 862,
+        "y": 263
+      }
+    },
+    "phrase_10": {
+      "offset": {
+        "x": 1361,
+        "y": 222.5
+      }
+    },
+    "Action2": {
+      "offset": {
+        "x": 1113,
+        "y": 259
+      }
+    },
+    "Condition68": {
+      "offset": {
+        "x": 75.5,
+        "y": 421
+      },
+      "data": {
+        "condition": "has_item",
+        "options": {
+          "item": "Item"
+        },
+        "type": "condition"
+      },
+      "id": "Condition68"
+    },
+    "Condition": {
+      "offset": {
+        "x": -119.5,
+        "y": 148
+      },
+      "data": {
+        "condition": "has_quest",
+        "options": {
+          "quest": "qw"
+        },
+        "type": "condition"
+      },
+      "id": "Condition"
+    }
+  },
+  "extra_connections": [
+    {
+      "from": "Action1",
+      "from_port": 0,
+      "to": "Action2",
+      "to_port": 0
+    },
+    {
+      "from": "Action2",
+      "from_port": 0,
+      "to": "phrase_10",
+      "to_port": 0
+    },
+    {
+      "from": "Start",
+      "from_port": 0,
+      "to": "Selector6",
+      "to_port": 0
+    },
+    {
+      "from": "Selector6",
+      "from_port": 0,
+      "to": "phrase_4",
+      "to_port": 0
+    },
+    {
+      "from": "Condition",
+      "from_port": 0,
+      "to": "Selector6",
+      "to_port": 1
+    },
+    {
+      "from": "Selector6",
+      "from_port": 1,
+      "to": "phrase_7",
+      "to_port": 0
+    },
+    {
+      "from": "Condition68",
+      "from_port": 0,
+      "to": "phrase_4",
+      "to_port": 2
+    },
+    {
+      "from": "phrase_4",
+      "from_port": 1,
+      "to": "Action1",
+      "to_port": 0
+    },
+    {
+      "from": "phrase_4",
+      "from_port": 0,
+      "to": "phrase_5",
+      "to_port": 0
+    }
+  ]
+}

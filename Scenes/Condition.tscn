@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Condition.gd" type="Script" id=1]
+
+[node name="Condition" type="GraphNode" groups=[
+"extra",
+]]
+margin_right = 181.0
+margin_bottom = 50.0
+title = "Condition"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pick" type="MenuButton" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 165.0
+margin_bottom = 44.0
+text = "Pick"

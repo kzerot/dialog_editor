@@ -1,0 +1,72 @@
+{
+  "start_node": "Selector1",
+  "nodes": {
+    "Selector1": {
+      "type": "selector",
+      "code": "Selector1",
+      "options": [
+        {
+          "code": "",
+          "next_code": "hello",
+          "conditions": [
+
+          ]
+        },
+        {
+          "code": "",
+          "next_code": "",
+          "conditions": [
+
+          ]
+        },
+        {
+          "code": "",
+          "next_code": "",
+          "conditions": [
+
+          ]
+        },
+        {
+          "code": "",
+          "next_code": "",
+          "conditions": [
+
+          ]
+        }
+      ]
+    },
+    "hello": {
+      "code": "hello",
+      "next_code": "",
+      "type": "phrase"
+    }
+  },
+  "extra": {
+    "Selector1": {
+      "offset": {
+        "x": 258.5,
+        "y": 30
+      }
+    },
+    "hello": {
+      "offset": {
+        "x": 368,
+        "y": -9.5
+      }
+    }
+  },
+  "extra_connections": [
+    {
+      "from": "Start",
+      "from_port": 0,
+      "to": "Selector1",
+      "to_port": 0
+    },
+    {
+      "from": "Selector1",
+      "from_port": 0,
+      "to": "hello",
+      "to_port": 0
+    }
+  ]
+}
